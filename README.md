@@ -40,7 +40,7 @@ Sessions:
 <!-- START OVERVIEW -->
 ## Overview
 
-Experto Codebase MCP is a local-first MCP server for codebase context, semantic search,
+Experto Codebase MCP is a local-first codebase context MCP server for semantic search,
 safe file access, and session memory across AI coding agents.
 
 It helps Codex, Gemini, Copilot, Claude, and other MCP clients understand a repository without
@@ -103,7 +103,7 @@ The project is under active development. The current runtime focuses on safe, to
 codebase access. Some capabilities are implemented, while deeper memory and agent handoff
 workflows are planned.
 
-Implemented or available:
+Implemented:
 
 * Runtime tool introspection through `get_help`.
 * Project overview and guided reading through `project_overview`.
@@ -115,9 +115,12 @@ Implemented or available:
 * Index health and error reporting through `index_status` and `index_errors`.
 * Universal response contract with `status`, `message`, `data`, `error`, `meta`, and `metrics`.
 
-Planned or in progress:
+In progress:
 
 * Deeper semantic retrieval workflows.
+
+Planned:
+
 * Safe diff-based write operations.
 * Session memory and agent handoff workflows.
 * Multi-client Docker and HTTP setup where it fits the local-first security model.

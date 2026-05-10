@@ -114,11 +114,11 @@ Read these files before producing a final review:
 
 1. `AGENTS.md`
 2. `README.md`
-3. `docs/development-standards.md`
-4. `docs/mcp-design-guidelines.md`
-5. `docs/architecture.md`
-6. `docs/markdown-standards.md`
-7. `docs/code-review.md`
+3. `references/development-standards.md`
+4. `references/mcp-design-guidelines.md`
+5. `references/architecture.md`
+6. `references/markdown-standards.md`
+7. `references/code-review.md`
 
 ### External engineering references
 
@@ -765,11 +765,11 @@ Document anything that could not be validated.
 Use this prompt when asking an AI agent to perform the review.
 
 ```text
-Review the current project code using ./docs/code-review.md as the mandatory review standard.
+Review the current project code using ./references/code-review.md as the mandatory review standard.
 
 You must:
-1. Read AGENTS.md, README.md, ./docs/development-standards.md,
-   ./docs/mcp-design-guidelines.md, ./docs/architecture.md, and ./docs/markdown-standards.md.
+1. Read AGENTS.md, README.md, ./references/development-standards.md,
+   ./references/mcp-design-guidelines.md, ./references/architecture.md, and ./references/markdown-standards.md.
 2. Identify changed files with git.
 3. Validate Python standards, FastMCP/MCP design, tests, OOP boundaries, design patterns,
    duplicated code, constants, configuration, security, and token economy.
@@ -779,8 +779,8 @@ You must:
    - uv run ruff format --check src tests
    - uv run mypy src
    - uv run pytest --cov=src --cov-branch
-5. Produce the final result only in ./docs/last-code-revew.md using the output contract from
-   ./docs/code-review.md.
+5. Produce the final result only in ./tmp/last-code-review.md using the output contract from
+   ./references/code-review.md.
 
 Do not approve the review if new behavior has no unit tests, if FastMCP tools bypass the service/domain
 architecture, if path safety is weak, if constants are hardcoded repeatedly, or if required quality gates fail.
