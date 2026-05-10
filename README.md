@@ -1,26 +1,25 @@
 <!-- AGENTS SUMMARY
-High-level overview of the Expertos Tech Filesystem MCP project for human users and AI agents.  
+High-level overview of Experto Codebase MCP for human users and AI coding agents.
 Sessions:
 - TLDR: Fast project summary for new readers.
-- PROBLEM-DEFINITION: Why this project exists and the problems it solves.
-- ARCHITECTURAL-GOALS: Key objectives (token economy, safety, intelligence).
-- DOCUMENTATION: Links to documentation and mandatory rules.
-- ROADMAP: Planned features and core capabilities.
+- OVERVIEW: Public positioning and MCP ecosystem fit.
+- CORE-CAPABILITIES: Main implemented and planned capability areas.
+- CURRENT-STATUS: Honest implementation status.
+- INSTALLATION: Local development setup.
+- NAMING-MIGRATION: Rename note from the pre-launch project name.
 -->
 
-# Expertos Tech Filesystem MCP
-
-An opinionated, intelligence-first MCP (Model Context Protocol) server designed to give AI agents safe, token-efficient,
-and semantically guided access to local codebases.
-
-This project is an open-source initiative from the Expertos Tech community: [https://expertostech.dev](https://expertostech.dev)  
+# Experto Codebase MCP
 
 ## Table of Contents
 
-* [The Problem: Why This Project Exists](#the-problem-why-this-project-exists)
-* [Key Architectural Goals](#key-architectural-goals)
+* [TL;DR](#tldr)
+* [Overview](#overview)
+* [Core Capabilities](#core-capabilities)
+* [Current Status](#current-status)
+* [Installation](#installation)
 * [Documentation](#documentation)
-* [Core Capabilities (Roadmap)](#core-capabilities-roadmap)
+* [Naming / Migration](#naming--migration)
 * [Contributing](#contributing)
 * [About Expertos Tech](#about-expertos-tech)
 
@@ -29,105 +28,114 @@ This project is an open-source initiative from the Expertos Tech community: [htt
 <!-- START TLDR -->
 ## TL;DR
 
-* `mcp-experto-filesystem` is a local-first MCP server for safe, token-efficient filesystem access.
-* The project prioritizes high-level discovery, semantic guidance, and strong write guardrails for AI agents.
-* Use `docs/README.md` and `AGENTS.md` as the main entry points for standards and repository behavior.
+* `mcp-experto-codebase` is a local-first MCP server for giving AI coding agents safe,
+  token-efficient, and semantically guided access to local codebases.
+* It helps agents understand project structure, retrieve relevant files, preserve session context,
+  and avoid wasteful full-repository reads.
+* Use `docs/README.md` and `AGENTS.md` as the main entry points for humans and AI agents.
 <!-- END TLDR -->
 
 ---
 
-<!-- START PROBLEM-DEFINITION -->
-## The Problem: Why This Project Exists
+<!-- START OVERVIEW -->
+## Overview
 
-Current AI agents interact with filesystems inefficiently. When asked to fix a bug or add a feature, they often:
-* Blindly read entire repositories or massive files.
-* Pollute their context window, wasting tokens and degrading reasoning.
-* Perform risky write operations without understanding the project architecture.
-* Fail to find relevant code because they rely on exact keyword matches.
+Experto Codebase MCP is a local-first MCP server for codebase context, semantic search,
+safe file access, and session memory across AI coding agents.
 
-mcp-experto-filesystem solves this by acting as a Project-Aware Context Layer. Instead of giving the LLM a dumb
-terminal to run commands, we provide high-level, strategic tools designed for Generative AI workflows.
-<!-- END PROBLEM-DEFINITION -->
+It helps Codex, Gemini, Copilot, Claude, and other MCP clients understand a repository without
+rereading everything on every task. The server focuses on token economy, selective reading,
+semantic code search, and local context that stays on the developer machine.
 
----
-
-<!-- START ARCHITECTURAL-GOALS -->
-## Key Architectural Goals
-
-* **Extreme Token Economy:** We prioritize summaries, targeted line-range excerpts, and semantic retrieval over
-  raw file dumps.
-* **Safe and Guardrailed Automation:** Read-only by default. Write operations require explicit intent, diff-based
-  previews, and respect project-specific protected areas.
-* **High-Level Intelligence:** Tools that automatically understand project structure, separating source code
-  from tests, configuration, and dependencies.
-* **Local-First and Private:** Embeddings, caches, and indexes remain entirely on the developer's machine.
-<!-- END ARCHITECTURAL-GOALS -->
+The product is not only a server for filesystem access. Filesystem access is a central capability, but
+the broader goal is a codebase context layer aligned with Model Context Protocol primitives:
+Resources for model context and project data, Prompts for reusable workflows, and Tools for
+executable codebase operations.
+<!-- END OVERVIEW -->
 
 ---
 
-<!-- START DOCUMENTATION -->
-## Documentation
+<!-- START CORE-CAPABILITIES -->
+## Core Capabilities
 
-Whether you are a human contributor or an AI agent, our documentation is your source of truth:
+### 1. Codebase Discovery
 
-* **[Technical Documentation Index](./docs/README.md):** The central hub for Python architecture, design
-  guidelines, and engineering standards.
-* **[AGENTS.md](./AGENTS.md):** Mandatory rules, persona, and command shortcuts for AI agents working in this
-  repository. AI agents must read this first.
-<!-- END DOCUMENTATION -->
-
----
-
-<!-- START ROADMAP -->
-## Core Capabilities (Roadmap)
-
-### 1. Smart Project Discovery
-* Automatic stack and framework detection.  
-* Entry point and configuration file mapping.  
-* Strict adherence to .gitignore and environment file protection.  
+* Stack and project structure detection.
+* Project overview generation.
+* Relevant entry point discovery.
+* Protected file and ignored path awareness.
 
 ### 2. Token-Optimized Reading
-* File summarization to understand intent before reading code.  
-* Symbol extraction for classes, functions, and interfaces.  
-* Targeted line-range excerpts to minimize context noise.  
 
-### 3. Semantic and Intent-Based Search
-* Local vector-based retrieval to find concepts (e.g., "Where is the auth middleware?") instead of just  
-  regex matching.  
+* Bounded file excerpts.
+* Line-range reads.
+* Document excerpts for supported formats.
+* Guidance to avoid dumping full files into the model context.
 
-### 4. Safe Modification
-* Dry-run file edits and surgical patch applications.  
-* Reversible changes with clear functional summaries.  
-<!-- END ROADMAP -->
+### 3. Semantic Code Search
+
+* Local workspace indexing.
+* Search by keyword, semantic intent, or hybrid ranking.
+* Similar content retrieval.
+* Search-oriented codebase navigation.
+
+### 4. Safe File Operations
+
+* Guardrails for paths under the configured workspace root.
+* Protected path awareness for sensitive and noisy files.
+* Planned dry-run and diff-based write operations.
+
+### 5. Session Memory and Agent Handoff
+
+* Planned compact session summaries.
+* Planned architectural decision capture.
+* Planned pending task tracking.
+* Planned recent-file change context.
+* Planned handoff workflows between Codex, Gemini, Copilot, Claude, and other MCP clients.
+<!-- END CORE-CAPABILITIES -->
 
 ---
 
-## Current Implementation Status
+<!-- START CURRENT-STATUS -->
+## Current Status
 
-The current runtime is based on `FastMCP` and exposes three public tools:
+The project is under active development. The current runtime focuses on safe, token-efficient
+codebase access. Some capabilities are implemented, while deeper memory and agent handoff
+workflows are planned.
 
-* `get_help`, implemented and backed by runtime tool introspection.
-* `project_overview`, currently exposed as a POC placeholder.
-* `read_file_excerpt`, currently exposed as a POC placeholder.
+Implemented or available:
 
-Every public tool is wrapped by the project's universal response contract, which standardizes
-`status`, `message`, `data`, `error`, `meta`, and `metrics`.
+* Runtime tool introspection through `get_help`.
+* Project overview and guided reading through `project_overview`.
+* File excerpts through `read_file_excerpt`.
+* Document excerpts through `read_document_excerpt`.
+* Workspace indexing through `index_workspace`.
+* Search-oriented navigation through `search_files`.
+* Similar content retrieval through `find_similar_content`.
+* Index health and error reporting through `index_status` and `index_errors`.
+* Universal response contract with `status`, `message`, `data`, `error`, `meta`, and `metrics`.
 
-Semantic search, filesystem traversal, intelligent excerpts, local caching, and safe write
-operations remain roadmap capabilities and are not implemented yet.
+Planned or in progress:
+
+* Deeper semantic retrieval workflows.
+* Safe diff-based write operations.
+* Session memory and agent handoff workflows.
+* Multi-client Docker and HTTP setup where it fits the local-first security model.
+<!-- END CURRENT-STATUS -->
 
 ---
 
-## Getting Started
+<!-- START INSTALLATION -->
+## Installation
 
 > The server is under active development. The steps below reflect the current local development workflow.
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/expertos-tech/mcp-experto-filesystem.git
-cd mcp-experto-filesystem
+git clone https://github.com/expertos-tech/mcp-experto-codebase.git
+cd mcp-experto-codebase
 
-# 2. Install dependencies (requires Python 3.11+)
+# 2. Install dependencies, requires Python 3.11+
 uv sync --all-extras
 
 # 3. Run the validation suite
@@ -135,28 +143,51 @@ uv run ruff check src tests
 uv run mypy src
 uv run pytest --cov=src --cov-branch
 
-# 4. Register with your MCP client (e.g., Claude Desktop)
+# 4. Register with your MCP client
 # Add the server entry to your client's mcp_servers config pointing to the stdio entrypoint.
 ```
 
-For configuration options and detailed integration instructions, see [docs/architecture.md](./docs/architecture.md).
+For detailed setup, see [docs/installation.md](./docs/installation.md).
+<!-- END INSTALLATION -->
+
+---
+
+<!-- START DOCUMENTATION -->
+## Documentation
+
+Whether you are a human contributor or an AI agent, documentation is the source of truth:
+
+* **[Docs Home](./docs/README.md):** Public documentation entry point.
+* **[Technical Documentation Index](./references/README.md):** Architecture, standards, and design guides.
+* **[AGENTS.md](./AGENTS.md):** Mandatory rules, persona, and command shortcuts for AI agents working in this
+  repository.
+<!-- END DOCUMENTATION -->
+
+---
+
+<!-- START NAMING-MIGRATION -->
+## Naming / Migration
+
+This project was originally developed as mcp-experto-filesystem and renamed before public launch to better
+reflect its broader scope: codebase context, semantic search, safe file access, and session memory.
+<!-- END NAMING-MIGRATION -->
 
 ---
 
 ## Contributing
 
-We are in the early stages of architecting this solution and welcome all contributions.
+We are in the early stages of building this solution and welcome focused contributions.
 
-1. Check the [Development Standards](./docs/development-standards.md).
-2. Understand our AI philosophy in the [MCP Design Guidelines](./docs/mcp-design-guidelines.md).
-3. Open an issue to discuss your ideas or submit a PR.
+1. Check the [Development Standards](./references/development-standards.md).
+2. Understand the AI tool philosophy in the [MCP Design Guidelines](./references/mcp-design-guidelines.md).
+3. Open an issue to discuss your idea or submit a pull request.
 
 ---
 
 ## About Expertos Tech
 
-We are a community focused on software engineering, cloud architecture, and AI education. We believe in building
-tools that help developers work smarter, not harder.
+Expertos Tech is a community focused on software engineering, cloud architecture, and AI education. We build
+tools that help developers work with stronger context and lower operational friction.
 
 * **Website:** [expertostech.dev](https://expertostech.dev)
-* **License:** MIT. See [LICENSE](./LICENSE) for details.
+* **License:** MIT. See `LICENSE` for details.

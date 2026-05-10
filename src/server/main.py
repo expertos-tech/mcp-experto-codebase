@@ -18,7 +18,7 @@ def load_server_instructions() -> str:
 
 
 mcp = FastMCP(
-    name="mcp-experto-filesystem",
+    name="mcp-experto-codebase",
     instructions=load_server_instructions(),
 )
 
@@ -30,5 +30,5 @@ register_filesystem_tools(mcp)
 def run() -> None:
     """Entrypoint to start the server."""
     logging.basicConfig(level="INFO")
-    logger.info("mcp-experto-filesystem (FastMCP) starting...")
+    logger.info("mcp-experto-codebase (FastMCP) starting...")
     mcp.run()

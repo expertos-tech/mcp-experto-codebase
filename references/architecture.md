@@ -40,7 +40,7 @@ Sessions:
 
 ### 1.1 Local Execution via stdio
 
-Given its nature as a filesystem automation tool, the MCP server must always operate via stdio.
+Given its nature as a local codebase context server, the MCP server must always operate via stdio.
 This ensures:
 
 * **Security:** No network ports are opened on the host machine.
@@ -62,7 +62,7 @@ The current server delegates MCP lifecycle management and tool exposure to `Fast
 
 On startup:
 
-* `src/server/main.py` creates a shared `FastMCP("mcp-experto-filesystem")` instance.
+* `src/server/main.py` creates a shared `FastMCP("mcp-experto-codebase")` instance.
 * The server loads `src/server/docs/server_instructions.md` and passes it to the FastMCP
   `instructions` parameter.
 * Tool modules register themselves against that shared application instance.
@@ -97,7 +97,7 @@ The current architecture separates runtime registration from handler logic:
 
 ### 3.2 Registration Lifecycle
 
-1. `main.py` creates a single `FastMCP("mcp-experto-filesystem")` instance.
+1. `main.py` creates a single `FastMCP("mcp-experto-codebase")` instance.
 2. Each tool module exports a registration function such as `register_help_tool(mcp)`.
 3. Registration functions declare public MCP tools with `@mcp.tool()`.
 4. Each public tool delegates to a handler that is already wrapped by the universal response decorator.

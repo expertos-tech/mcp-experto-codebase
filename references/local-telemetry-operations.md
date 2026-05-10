@@ -43,7 +43,7 @@ Sessions:
 
 This stack provides local, persistent, real-time observability for:
 
-* `mcp-experto-filesystem`
+* `mcp-experto-codebase`
 * the CLI, agent, or host process that runs or consumes the MCP
 * model usage signals, when the emitting process publishes them through OpenTelemetry
 
@@ -154,7 +154,7 @@ Recommended environment variables:
 ```bash
 export OTEL_EXPORTER_OTLP_ENDPOINT=http://127.0.0.1:4318
 export OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
-export OTEL_SERVICE_NAME=mcp-experto-filesystem
+export OTEL_SERVICE_NAME=mcp-experto-codebase
 export OTEL_RESOURCE_ATTRIBUTES=deployment.environment.name=local,service.namespace=expertostech
 ```
 

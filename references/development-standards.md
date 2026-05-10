@@ -18,7 +18,7 @@ Sessions:
 
 # Development Standards (Python & Engineering)
 
-This document defines the technical development standards for mcp-experto-filesystem. For AI-specific tool design and
+This document defines the technical development standards for mcp-experto-codebase. For AI-specific tool design and
 token economy guidelines, see [MCP Design Guidelines](./mcp-design-guidelines.md).
 
 ## Table of Contents
@@ -62,7 +62,7 @@ token economy guidelines, see [MCP Design Guidelines](./mcp-design-guidelines.md
 
 ## Purpose
 
-This document defines how to write and organize the Python code for mcp-experto-filesystem. The goal is to maintain a
+This document defines how to write and organize the Python code for mcp-experto-codebase. The goal is to maintain a
 boring, stable, and maintainable codebase that powers a powerful external MCP interface.
 
 ---
@@ -249,7 +249,7 @@ MCPError (base)
     ConfigurationError   - bad server or environment configuration
 ```
 
-All exception classes live in `src/mcp_experto/exceptions.py`.
+All exception classes live in `src/server/exceptions.py`.
 
 ### Rules
 

@@ -1,8 +1,8 @@
-"""Domain-specific exception hierarchy for mcp-experto-filesystem."""
+"""Domain-specific exception hierarchy for Experto Codebase MCP."""
 
 
 class MCPError(Exception):
-    """Base exception for all mcp-experto-filesystem errors."""
+    """Base exception for all Experto Codebase MCP errors."""
 
 
 class ValidationError(MCPError):

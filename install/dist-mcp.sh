@@ -5,8 +5,8 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(dirname "${SCRIPT_DIR}")"
 DIST_DIR="${SCRIPT_DIR}/dist"
-PACKAGE_BASENAME="mcp-experto-filesystem"
-INSTALLER_NAME="mcp-experto-filesystem-install.sh"
+PACKAGE_BASENAME="mcp-experto-codebase"
+INSTALLER_NAME="mcp-experto-codebase-install.sh"
 
 info() { echo "[info]  $*"; }
 ok() { echo "[ok]    $*"; }

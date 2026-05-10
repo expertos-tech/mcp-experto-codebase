@@ -51,8 +51,8 @@ They are distinct from the technical docs above and must be read before any othe
 
 | File | Purpose |
 | :--- | :--- |
-| **[AGENTS.md](https://github.com/expertos-tech/mcp-experto-filesystem/blob/main/AGENTS.md)** | Canonical agent persona, safety rules, git conventions, and command shortcuts. |
-| **[CLAUDE.md](https://github.com/expertos-tech/mcp-experto-filesystem/blob/main/CLAUDE.md)** | Claude Code-specific overrides and persona settings (mirrors AGENTS.md with adjustments). |
+| **[AGENTS.md](https://github.com/expertos-tech/mcp-experto-codebase/blob/main/AGENTS.md)** | Canonical agent persona, safety rules, git conventions, and command shortcuts. |
+| **[CLAUDE.md](https://github.com/expertos-tech/mcp-experto-codebase/blob/main/CLAUDE.md)** | Claude Code-specific overrides and persona settings (mirrors AGENTS.md with adjustments). |
 <!-- END AGENT-RULES -->
 
 ---
@@ -70,7 +70,7 @@ They are distinct from the technical docs above and must be read before any othe
   creating or editing any `.md` file.
 * **Maintaining the Docsify site:** Read [Docsify Standards](./docsify-standards.md) before
   changing `docs/index.html`, `docs/_sidebar.md`, or published docs pages.
-* **AI agents:** Read [AGENTS.md](https://github.com/expertos-tech/mcp-experto-filesystem/blob/main/AGENTS.md)
-  or [CLAUDE.md](https://github.com/expertos-tech/mcp-experto-filesystem/blob/main/CLAUDE.md) first,
+* **AI agents:** Read [AGENTS.md](https://github.com/expertos-tech/mcp-experto-codebase/blob/main/AGENTS.md)
+  or [CLAUDE.md](https://github.com/expertos-tech/mcp-experto-codebase/blob/main/CLAUDE.md) first,
   then use this index to navigate to the relevant technical reference.
 <!-- END USAGE-GUIDE -->

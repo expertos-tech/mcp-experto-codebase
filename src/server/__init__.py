@@ -1,3 +1,3 @@
-"""mcp-experto-filesystem: intelligence-first MCP server for filesystem access."""
+"""Experto Codebase MCP: local-first MCP server for codebase context."""
 
 __version__ = "0.1.0"

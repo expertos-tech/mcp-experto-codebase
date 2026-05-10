@@ -4,6 +4,7 @@ Sessions:
 - NON-NEGOTIABLE: Critical rules that must be followed without exception.
 - AGENT-PERSONA: Definition of the agent's role and expertise.
 - MANDATORY-READING: Required documentation to be read before acting.
+- PROJECT-IDENTITY: Public product identity and positioning.
 - REPOSITORY-SAFETY-RULES: Guidelines for safe file and system manipulation.
 - OPERATIONAL-DIRECTIVES: Workflow instructions (Waves, Research, Strategy).
 - TOKEN-ECONOMY: Principles for minimizing context waste.
@@ -20,6 +21,7 @@ Sessions:
 * [Agent Persona & Repository Rules](#agent-persona--repository-rules-1)
 * [1. Agent Persona](#1-agent-persona)
 * [2. Mandatory Reading](#2-mandatory-reading)
+* [2.1 Project Identity](#21-project-identity)
 * [3. Repository Safety Rules](#3-repository-safety-rules)
 * [4. Operational Directives](#4-operational-directives)
 * [5. Token Economy Guidelines](#5-token-economy-guidelines)
@@ -69,6 +71,18 @@ Your role transitions between a strategic advisor and a surgical engineer implem
 Before making any changes, you MUST read the following:
 * **[Technical Documentation Index](./references/README.md):** Comprehensive guide on architecture and standards.  
 <!-- END MANDATORY-READING -->
+
+---
+
+<!-- START PROJECT-IDENTITY -->
+## 2.1 Project Identity
+
+This repository is `mcp-experto-codebase`. The public product name is **Experto Codebase MCP**.
+
+Experto Codebase MCP is a local-first MCP server for codebase context, semantic search,
+safe file access, and session memory across AI coding agents. Filesystem access is a core
+capability, but the product should be presented as a codebase context layer for MCP clients.
+<!-- END PROJECT-IDENTITY -->
 
 ---
 
@@ -171,7 +185,8 @@ docs(refactor): consolidate documentation for better navigation
   to delete the feature branch both locally and remotely.
 
 ### Cleanup & Maintenance
-* `*clean`: Removes all files within `./tmp/` except `prompt.md`.  
+* `*clean [--all]`: Removes all files within `./tmp/` except `prompt.md`. When `--all` is provided, it also
+  recreates `./tmp/prompt.md` with only Context and Instructions headers.
 * `*clean-prompt`: Resets `./tmp/prompt.md` preserving only Context and Instructions headers.  
 
 ### Session Management

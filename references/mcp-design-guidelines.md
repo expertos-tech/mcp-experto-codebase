@@ -36,7 +36,7 @@ use correctly.
 ## TL;DR
 
 * MCP tools in this project must reduce token usage, stay safe by default, and expose clear structured schemas.
-* Prefer high-level, intent-oriented operations over raw filesystem primitives.
+* Prefer high-level, intent-oriented codebase operations over raw filesystem primitives.
 * Use these guidelines whenever you add or revise a tool contract, output format, or retrieval strategy.
 <!-- END TLDR -->
 
@@ -45,10 +45,10 @@ use correctly.
 <!-- START CORE-PHILOSOPHY -->
 ## Core Philosophy
 
-The differentiator of mcp-experto-filesystem is intent-based filesystem intelligence. Instead of giving an agent a
-dumb filesystem, we provide a project-aware layer that helps the agent decide **what matters**.
+The differentiator of mcp-experto-codebase is intent-based codebase intelligence. Instead of giving an agent raw
+filesystem access, we provide a project-aware layer that helps the agent decide **what matters**.
 
-Each tool must earn its place by reducing the total tokens an agent needs to reason about the filesystem - not by
+Each tool must earn its place by reducing the total tokens an agent needs to reason about the codebase - not by
 exposing more raw primitives.
 <!-- END CORE-PHILOSOPHY -->
 

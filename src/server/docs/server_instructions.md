@@ -70,8 +70,9 @@ Sessions:
 <!-- START OVERVIEW -->
 ## Overview
 
-`mcp-experto-filesystem` is an MCP server for safe, token-efficient filesystem workflows.
-Prefer compact discovery and targeted reads over broad repository dumps.
+`mcp-experto-codebase` is a local-first MCP server for codebase context, semantic search,
+safe file access, and session memory across AI coding agents.
+Prefer compact discovery, semantic retrieval, and targeted reads over broad repository dumps.
 <!-- END OVERVIEW -->
 
 ---

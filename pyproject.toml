@@ -1,7 +1,7 @@
 [project]
-name = "mcp-experto-filesystem"
+name = "mcp-experto-codebase"
 version = "0.1.0"
-description = "Intelligence-first MCP server for safe, token-efficient filesystem access."
+description = "Local-first MCP server for codebase context, semantic search, safe file access, and session memory across AI coding agents."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
@@ -31,7 +31,7 @@ test = [
 ]
 
 [project.scripts]
-mcp-experto-filesystem = "server.__main__:main"
+mcp-experto-codebase = "server.__main__:main"
 
 [build-system]
 requires = ["hatchling"]

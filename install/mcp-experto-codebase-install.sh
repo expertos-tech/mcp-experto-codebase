@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
-# mcp-experto-filesystem-install.sh
+# mcp-experto-codebase-install.sh
 #
-# Installs a packaged mcp-experto-filesystem release into ~/.mcp_experto_filesystem
+# Installs a packaged mcp-experto-codebase release into ~/.mcp_experto_codebase
 # and registers it in ~/.claude/.mcp.json (merges, never overwrites).
 #
 # Usage:
-#   bash install/mcp-experto-filesystem-install.sh
+#   bash install/mcp-experto-codebase-install.sh
 
 set -euo pipefail
 
 # ── Config ────────────────────────────────────────────────────────────────
 
-SERVER_KEY="mcp-experto-filesystem"
-INSTALL_DIR="${HOME}/.mcp_experto_filesystem"
+SERVER_KEY="mcp-experto-codebase"
+INSTALL_DIR="${HOME}/.mcp_experto_codebase"
 CLAUDE_DIR="${HOME}/.claude"
 MCP_CONFIG="${CLAUDE_DIR}/.mcp.json"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -60,7 +60,7 @@ fi
 # ── Summary ───────────────────────────────────────────────────────────────
 
 echo ""
-echo "  mcp-experto-filesystem installer"
+echo "  mcp-experto-codebase installer"
 echo "  ─────────────────────────────────────────────"
 echo "  Dist   : ${DIST_DIR}"
 echo "  Target : ${INSTALL_DIR}"
@@ -73,7 +73,7 @@ echo ""
 [[ -f "${INSTALLER_SHA_PATH}" ]] || err "Installer checksum not found at ${INSTALLER_SHA_PATH}."
 [[ -f "${INSTALLER_PATH}" ]] || err "Installer not found at ${INSTALLER_PATH}."
 
-PACKAGE_CANDIDATES=("${DIST_DIR}"/mcp-experto-filesystem.v*.tar.gz)
+PACKAGE_CANDIDATES=("${DIST_DIR}"/mcp-experto-codebase.v*.tar.gz)
 if [[ ! -e "${PACKAGE_CANDIDATES[0]}" ]]; then
     err "No packaged release found in ${DIST_DIR}."
 fi
@@ -85,7 +85,7 @@ fi
 ARCHIVE_PATH="${PACKAGE_CANDIDATES[0]}"
 ARCHIVE_SHA_PATH="${ARCHIVE_PATH}.sha256"
 ARCHIVE_BASENAME="$(basename "${ARCHIVE_PATH}")"
-ARCHIVE_ROOT="mcp-experto-filesystem"
+ARCHIVE_ROOT="mcp-experto-codebase"
 STAGING_DIR="$(mktemp -d)"
 
 cleanup() {
