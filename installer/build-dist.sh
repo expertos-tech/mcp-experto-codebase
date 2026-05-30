@@ -56,7 +56,6 @@ info "Preparing package content for version ${RAW_VERSION}"
 cp -r "${REPO_ROOT}/src" "${PACKAGE_ROOT}/src"
 cp "${REPO_ROOT}/pyproject.toml" "${PACKAGE_ROOT}/pyproject.toml"
 cp "${REPO_ROOT}/README.md" "${PACKAGE_ROOT}/README.md"
-cp -r "${REPO_ROOT}/install" "${PACKAGE_ROOT}/install"
 cp "${SCRIPT_DIR}/${UNIX_INSTALLER}" "${PACKAGE_ROOT}/installer/${UNIX_INSTALLER}"
 cp "${SCRIPT_DIR}/${WIN_INSTALLER}" "${PACKAGE_ROOT}/installer/${WIN_INSTALLER}"
 

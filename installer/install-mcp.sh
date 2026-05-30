@@ -16,8 +16,8 @@ command -v sha256sum >/dev/null 2>&1 || err "sha256sum not found"
 
 OS_NAME="$(uname -s)"
 case "${OS_NAME}" in
-  Linux*) TARGET_DIR="/.local/mcp-experto-codebase" ;;
-  Darwin*) TARGET_DIR="/.local/mcp-experto-codebase" ;;
+  Linux*) TARGET_DIR="${HOME}/.local/mcp-experto-codebase" ;;
+  Darwin*) TARGET_DIR="${HOME}/.local/mcp-experto-codebase" ;;
   *) err "Unsupported OS: ${OS_NAME}" ;;
 esac
 
@@ -112,9 +112,8 @@ PACKAGE_ROOT="${STAGING_DIR}/mcp-experto-codebase"
 [[ -d "${PACKAGE_ROOT}" ]] || err "Invalid package contents."
 
 mkdir -p "${TARGET_DIR}"
-rm -rf "${TARGET_DIR}/src" "${TARGET_DIR}/install" "${TARGET_DIR}/installer"
+rm -rf "${TARGET_DIR}/src" "${TARGET_DIR}/installer"
 cp -r "${PACKAGE_ROOT}/src" "${TARGET_DIR}/src"
-cp -r "${PACKAGE_ROOT}/install" "${TARGET_DIR}/install"
 cp -r "${PACKAGE_ROOT}/installer" "${TARGET_DIR}/installer"
 cp "${PACKAGE_ROOT}/pyproject.toml" "${TARGET_DIR}/pyproject.toml"
 cp "${PACKAGE_ROOT}/README.md" "${TARGET_DIR}/README.md"
