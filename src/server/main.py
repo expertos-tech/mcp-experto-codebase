@@ -5,6 +5,7 @@ from pathlib import Path
 
 from fastmcp import FastMCP
 
+from server.prompts.command_shortcuts import register_command_shortcut_prompts
 from server.tools.filesystem import register_filesystem_tools
 from server.tools.help import register_help_tool
 
@@ -25,6 +26,7 @@ mcp = FastMCP(
 # Register tool groups
 register_help_tool(mcp)
 register_filesystem_tools(mcp)
+register_command_shortcut_prompts(mcp)
 
 
 def run() -> None:

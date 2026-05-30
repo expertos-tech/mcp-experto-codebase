@@ -169,33 +169,24 @@ docs(refactor): consolidate documentation for better navigation
 ## 8. Command Shortcuts
 
 ### Documentation & Context
-* `*help [command|group]`: Displays command information organized by groups.  
-* `*prompt`: Triggers an immediate read of `./tmp/prompt.md` to update instructions.  
-* `*reload`: Re-reads core rules from `AGENTS.md`, `CLAUDE.md`, or `GEMINI.md`.  
+* `*help [command|group]`: Call MCP prompt `star_help` if available.  
+* `*prompt`: Call MCP prompt `star_prompt` if available.  
+* `*reload`: Call MCP prompt `star_reload` if available.  
 
 ### Version Control (Git)
-* `*commit`: Executes a semantic git commit for the session's work.  
-* `*commit-all`: Stages all pending changes and commits them with an "Additional Changes" summary.  
-* `*push`: Triggers a `*commit` and then pushes local commits to the remote repository.  
-* `*git-branch`: Automates branch creation based on **6. Git Rules**. The agent must ask for the functional  
-  purpose of the branch, generate a compliant semantic name, create the branch locally, and immediately push  
-  it to the remote repository.  
-* `*merge-main`: Finalizes the current branch workflow. It triggers a `*commit-all` and `*push` on the current  
-  branch, switches back to `main`, merges the feature branch into `main`, and then asks for user confirmation  
-  to delete the feature branch both locally and remotely.
+* `*commit`: Call MCP prompt `star_commit` if available.  
+* `*commit-all`: Call MCP prompt `star_commit_all` if available.  
+* `*push`: Call MCP prompt `star_push` if available.  
+* `*git-branch`: Call MCP prompt `star_git_branch` if available.  
+* `*merge-main`: Call MCP prompt `star_merge_main` if available.
 
 ### Cleanup & Maintenance
-* `*clean [--all]`: Removes all files within `./tmp/` except `prompt.md`. When `--all` is provided, it also
-  recreates `./tmp/prompt.md` with only Context and Instructions headers.
-* `*clean-prompt`: Resets `./tmp/prompt.md` preserving only Context and Instructions headers.  
+* `*clean [--all]`: Call MCP prompt `star_clean` if available.  
+* `*clean-prompt`: Call MCP prompt `star_clean_prompt` if available.  
 
 ### Session Management
-* `*save-session`: Compiles an exhaustive, step-by-step record of the session. Before saving, the agent must  
-  check if `./tmp/last-session.md` exists. If it does, the agent must summarize its current content and ask the  
-  user whether to overwrite the file or append the new session data to it. The report includes execution  
-  plans, rationale, and a detailed list of file modifications.  
-* `*load-session`: Proactively checks for `./tmp/last-session.md`. If the file exists, the agent must recover  
-  and re-anchor all context, progress, and historical data into its active memory to ensure continuity.  
+* `*save-session`: Call MCP prompt `star_save_session` if available.  
+* `*load-session`: Call MCP prompt `star_load_session` if available.  
 <!-- END COMMAND-SHORTCUTS -->
 
 *Follow these rules strictly to ensure a safe and efficient development lifecycle.*  

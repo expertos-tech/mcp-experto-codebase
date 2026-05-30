@@ -3,6 +3,7 @@ Installation guide for Experto Codebase MCP.
 Sessions:
 - TLDR: Fast setup summary.
 - PREREQUISITES: Required local tools.
+- DISTRIBUTION-BUILD: How to generate packaged artifacts in installer/dist.
 - AUTOMATIC-INSTALLATION: Packaged installer workflow.
 - MANUAL-INSTALLATION: Editable local development workflow.
 - CONFIGURATION: Environment and MCP client configuration notes.
@@ -14,6 +15,7 @@ Sessions:
 
 * [TL;DR](#tldr)
 * [Prerequisites](#prerequisites)
+* [Distribution Build](#distribution-build)
 * [Automatic Installation](#automatic-installation)
 * [Manual Installation](#manual-installation)
 * [Configuration](#configuration)
@@ -23,8 +25,8 @@ Sessions:
 <!-- START TLDR -->
 ## TL;DR
 
-* Install Experto Codebase MCP with the packaged installer when using a release artifact.
-* Use the manual workflow for local development and contribution.
+* Build release artifacts with `installer/build-dist.sh`.
+* Use `installer/install-mcp.sh` on Linux/macOS or `installer/install-mcp.bat` on Windows.
 * The MCP server runs locally through stdio and should be registered in your MCP client config.
 <!-- END TLDR -->
 
@@ -34,21 +36,59 @@ Sessions:
 ## Prerequisites
 
 * **Python:** 3.11 or higher.
-* **uv:** Required for dependency management and packaged installs.
-* **System:** Linux preferred, macOS supported for local development.
+* **uv:** Recommended for dependency management after install.
+* **System:** Linux, macOS, or Windows.
 * **Docker:** Optional, required only for local telemetry features.
 <!-- END PREREQUISITES -->
+
+---
+
+<!-- START DISTRIBUTION-BUILD -->
+## Distribution Build
+
+Generate the versioned tarball and installers in `installer/dist`:
+
+```bash
+bash installer/build-dist.sh
+```
+
+Expected artifacts:
+
+* `installer/dist/mcp-experto-codebase.vX.Y.Z.tar.gz`
+* `installer/dist/mcp-experto-codebase.vX.Y.Z.tar.gz.sha256`
+* `installer/dist/build-dist.sh` (+ checksum)
+* `installer/dist/install-mcp.sh` (+ checksum)
+* `installer/dist/install-mcp.bat` (+ checksum)
+<!-- END DISTRIBUTION-BUILD -->
 
 ---
 
 <!-- START AUTOMATIC-INSTALLATION -->
 ## Automatic Installation
 
-The project includes an installation script for packaged releases:
+### Linux/macOS
 
 ```bash
-bash install/mcp-experto-codebase-install.sh
+bash installer/install-mcp.sh
 ```
+
+Default target directory:
+
+* `~/.local/mcp-experto-codebase`
+
+### Windows
+
+Run from Command Prompt:
+
+```bat
+installer\install-mcp.bat
+```
+
+Default target directory:
+
+* `%LOCALAPPDATA%\mcp-experto-codebase` (fallback: `%USERPROFILE%\.local\mcp-experto-codebase`)
+
+The installers validate Python 3.11+. If Python is missing, they try automatic installation where possible and otherwise print manual steps.
 <!-- END AUTOMATIC-INSTALLATION -->
 
 ---
